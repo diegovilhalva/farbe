@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+    --color-green:#00e678;
+    --color-white:#dcb8d3;
+    --font-sans:'Inter';
+    --font-mono:'Geist Mono';
+    --font-mono-font-feature-settings:'ss09' on;
+}   
+

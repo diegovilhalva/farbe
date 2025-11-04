@@ -19,10 +19,12 @@ export default defineNuxtConfig({
       ],
     }
   },
-  css:['~/assets/css/index.css'],
-  vite:{ plugin:[
-    tailwindcss()
-  ]},
+  css: ['~/assets/css/index.css'],
+  vite: {
+    plugins: [
+      tailwindcss()
+    ]
+  },
   modules: ['@nuxt/eslint', '@nuxtjs/prismic', '@nuxt/fonts'],
 
   prismic: {

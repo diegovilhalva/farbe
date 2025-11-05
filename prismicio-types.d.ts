@@ -159,7 +159,7 @@ interface SettingsDocumentData {
   navigation: prismic.Repeatable<
     prismic.LinkField<string, string, unknown, prismic.FieldState, never>
   > /**
-   * FooterTtext field in *Settings*
+   * Footer Text field in *Settings*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*

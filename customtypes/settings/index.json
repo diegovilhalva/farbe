@@ -47,7 +47,7 @@
       "footerttext": {
         "type": "StructuredText",
         "config": {
-          "label": "FooterTtext",
+          "label": "Footer Text",
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "paragraph,heading3,strong,em,hyperlink,list-item"

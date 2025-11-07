@@ -1,25 +1,121 @@
 [
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "default",
-    "primary": {
-      "content": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Nisi eiusmod nostrud laborum tempor adipisicing adipisicing proident sunt elit id. Excepteur commodo occaecat Lorem non fugiat laborum consequat occaecat sit."
-            }
-          }
-        ]
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  }
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"ctas": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "d2b1e468-afbc-4090-baa4-0abb61eba28f",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "http://google.com",
+							"text": "Join them in their journey",
+							"variant": "Transparent"
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Shots from the \nFarbe Community",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "From around the world, photographers use\nFarbe to capture unique slice of life.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "fullscreen",
+		"primary": {
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Embrace night photography with our new emulsion for fine-grained, 800 speed, interior and evening photography.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"ctas": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"__TYPE__": "LinkContent",
+						"key": "a13a198d-218b-4e71-9943-ddcef8984c68",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "https://prismic.io",
+							"text": "Shop 800",
+							"variant": "Primary"
+						}
+					},
+					{
+						"__TYPE__": "LinkContent",
+						"key": "59fa1d15-1daf-4c79-9b27-d8b76469001d",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "www.google.com",
+							"target": "_blank",
+							"text": "Discover",
+							"variant": "Transparent"
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Introducing Farbe 800",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
 ]

@@ -23,11 +23,11 @@ defineProps<{
                 </defs>
             </svg>
         </figure>
-        <section class="bounded rich-text min-h-screen flex flex-col mix-blend-difference ">
+        <SlideIn class="bounded rich-text min-h-screen flex flex-col mix-blend-difference ">
                 <h2><BrandSignature /></h2>
                 <PrismicRichText :field="settings?.data.footerttext"/>
                 <hr class="flex-1 border-none">
                  <PrismicRichText :field="settings?.data.footer_secondary_text"/>
-        </section>
+        </SlideIn>
     </footer>
 </template>

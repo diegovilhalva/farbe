@@ -6,9 +6,9 @@ defineProps(getSliceComponentProps<Content.RichTextSlice>());
 </script>
 
 <template>
-  <section class="bounded rich-text flex flex-col justify-center" :class="{
+  <SlideIn class="bounded rich-text flex flex-col justify-center" :class="{
     'min-h-[40vh]': slice.variation !== 'fullscreen',
-    'min-h-screen': slice.variation === 'fullscreen'
+    'min-h-screen opacity-0': slice.variation === 'fullscreen'
   }">
      <PrismicRichText :field="slice.primary.title" />
     <PrismicRichText :field="slice.primary.text" />
@@ -17,5 +17,5 @@ defineProps(getSliceComponentProps<Content.RichTextSlice>());
       v-for="link in slice.primary.ctas" :key="link.key"
        :field="link" :class="link.variant?.toLowerCase()" class="cta" />
     </div>
-  </section>
+  </SlideIn>
 </template>

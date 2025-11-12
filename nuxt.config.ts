@@ -25,7 +25,7 @@ export default defineNuxtConfig({
       tailwindcss()
     ]
   },
-  modules: ['@nuxt/eslint', '@nuxtjs/prismic', '@nuxt/fonts'],
+  modules: ['@nuxt/eslint', '@nuxtjs/prismic', '@nuxt/fonts', '@unlok-co/nuxt-stripe'],
 
   prismic: {
     endpoint: apiEndpoint || repositoryName,

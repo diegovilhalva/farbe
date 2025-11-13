@@ -9,7 +9,7 @@ import DescriptionDetails from "./DescriptionDetails.vue";
 
 
 const props = defineProps(
-  getSliceComponentProps<Content.ProductSlice>(),
+  getSliceComponentProps<Content.ProductSlice,{ stripeProducts: Record<string, StripeProduct> }>(),
 );
 const prismic = usePrismic()
 const product = computed(() => {
@@ -17,8 +17,14 @@ const product = computed(() => {
   if (!prismic.isFilled.contentRelationship(prismicProduct) || !prismicProduct.data?.stripe_id) {
     return undefined
   }
-  return prismicProduct
+  const stripeProduct = props.context.stripeProducts?.[prismicProduct.data.stripe_id]
+  return {
+		...prismicProduct,
+		stripeProduct,
+	}
 })
+
+const { items, upsertItem } = useCart()
 
 const quantity = ref(1)
 function setQuantity(value: number) {
@@ -27,6 +33,20 @@ function setQuantity(value: number) {
 
 function onSubmit(event:Event) {
   event.preventDefault()
+
+	if (!product.value?.stripeProduct) {
+		return
+	}
+
+	const maybeCartQuantity = items.value[product.value.stripeProduct.id]?.quantity ?? 0
+
+	upsertItem({
+		product: product.value.stripeProduct,
+		quantity: maybeCartQuantity + quantity.value,
+		name: prismic.asText(product.value.data?.name) ?? "",
+	})
+
+	setQuantity(1)
 }
 </script>
 
@@ -34,7 +54,8 @@ function onSubmit(event:Event) {
   <SlideIn v-if="product" as="article" class="bounded rich-text min-h-[150vh] flex flex-col justify-center">
     <header :id="product.uid" class="rich-text pt-[25h]">
       <PrismicRichText :field="product.data?.name" />
-      <p aria-label="Price">TODO / roll</p>
+      <p v-if="product?.stripeProduct" aria-label="Price">
+        {{ formatPrice(product.stripeProduct.price.amount) }} / roll</p>
     </header>
     <section class="rich-text">
       <h3>Description</h3>
@@ -66,6 +87,18 @@ function onSubmit(event:Event) {
         <button class="w-full cta primary" type="submit">
           Add to cart
         </button>
+        <ClientOnly>
+					<p
+						class="text-center"
+						:class="{
+							invisible: !items[product.stripeProduct.id]?.quantity,
+						}"
+					>
+						<NuxtLink to="/#cart" class="cta muted">
+							{{ items[product.stripeProduct.id]?.quantity }} in cart
+						</NuxtLink>
+					</p>
+				</ClientOnly>
       </div>
     </form>
   </SlideIn>

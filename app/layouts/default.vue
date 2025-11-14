@@ -2,6 +2,8 @@
 import AppFooter from '~/components/AppFooter.vue';
 import AppHeader from '~/components/AppHeader.vue';
 
+const route = useRoute()
+
 const prismic = usePrismic()
 const { data: settings } = await useAsyncData('settings', () => prismic.client.getSingle('settings'))
 useSeoMeta({
@@ -10,6 +12,13 @@ useSeoMeta({
     description:settings.value?.data.meta_description,
     ogDescription:settings.value?.data.meta_description,
     ogImage:() => prismic.asImageSrc(settings.value?.data.meta_image)
+})
+
+onMounted(() => {
+	if (route.query.order === "completed") {
+		useCart().clear()
+		useRouter().replace({ path: route.path })
+	}
 })
 </script>
 <template>

@@ -21,7 +21,7 @@ useSeoMeta({
 
 <template>
   <SliceZone
-    wrapper="main"
+   
     :slices="page?.data.slices ?? []"
     :components="components"
     :context="{ stripeProducts }"

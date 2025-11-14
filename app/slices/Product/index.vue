@@ -91,11 +91,11 @@ function onSubmit(event:Event) {
 					<p
 						class="text-center"
 						:class="{
-							invisible: !items[product.stripeProduct.id]?.quantity,
+							invisible: !items[product!.stripeProduct!.id]?.quantity,
 						}"
 					>
 						<NuxtLink to="/#cart" class="cta muted">
-							{{ items[product.stripeProduct.id]?.quantity }} in cart
+							{{ items[product!.stripeProduct!.id]?.quantity }} in cart
 						</NuxtLink>
 					</p>
 				</ClientOnly>
